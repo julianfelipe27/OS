@@ -9,6 +9,7 @@
   "author": "julian",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "ps-list": "^6.3.0",
     "ps-node": "^0.1.6"
