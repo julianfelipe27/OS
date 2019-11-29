@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>ProcessManager</title>
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-content>
+        <v-container style="display:flex;flex-direction:column;align-items:center;">
+            <v-text-field
+                style="width:50%;"
+                shaped
+                filled
+                label="Find process"
+                v-model="search"
+                append-icon="search"
+              ></v-text-field>
+            <v-data-table style="width: 100%" :search="search" :items-per-page="30"  :items="processes" :headers="headers">
+
+   <template v-slot:item.kill="{ item }">
+                            <v-btn small color="primary" rounded @click="killProcess(item.pid), isOpen=true">
+                              <v-icon>mdi-close-circle</v-icon>
+                              </v-btn>
+                          </template>                             </v-data-table>
+        </v-container>
+      </v-content>
+    </v-app>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="./main.js"></script>
+</body>
